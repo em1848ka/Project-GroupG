@@ -1,9 +1,19 @@
 #include <iostream>
+#include <fstream>
 #include "../include/tempTrender.h"
 
 tempTrender::tempTrender(const std::string& filePath) {
 	std::cout << "The user supplied " << filePath <<" as the path to the data file.\n";
 	std::cout << "You should probably store this information in a member variable of the class! Good luck with the project! :)\n";
+	
+	//Here i am just testing if tempTrender works by printing out a few lines    
+	ifstream testFile (filePath);
+	string line;
+    for (int i = 0; i<5; i++){
+    getline (testFile,line);
+    std::cout << line << "\n";	
+	}
+    testFile.close();
 }
 
 // void tempTrender::tempOnDay(int monthToCalculate, int dayToCalculate) const {} //Make a histogram of the temperature on this day
