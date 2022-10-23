@@ -1,22 +1,36 @@
 #include <iostream>
-#include <fstream>
 #include "../include/tempTrender.h"
 
 tempTrender::tempTrender(const std::string& filePath) {
-	std::cout << "The user supplied " << filePath <<" as the path to the data file.\n";
-	std::cout << "You should probably store this information in a member variable of the class! Good luck with the project! :)\n";
-	
-	//Here i am just testing if tempTrender works by printing out a few lines    
-	ifstream testFile (filePath);
+	ifstream dataFile(filePath);
 	string line;
-    for (int i = 0; i<5; i++){
-    getline (testFile,line);
-    std::cout << line << "\n";	
+    while(!dataFile.eof()){		
+		getline (dataFile,line);
+    	dataArray.push_back(line);
 	}
-    testFile.close();
+	dataFile.close();
 }
 
-// void tempTrender::tempOnDay(int monthToCalculate, int dayToCalculate) const {} //Make a histogram of the temperature on this day
+void tempTrender::tempOnDay(int monthToCalculate, int dayToCalculate) const { 
+	TH1I* hist = new TH1I("temperature", "Temperature;Temperature[#circC];Entries", 300, -20, 40);		
+	for (const string &data: dataArray){
+		if(!data.empty()){
+			int monthOfDate = std::stoi(data.substr(5,2));
+			int dayOfDate = std::stoi(data.substr(8,2));
+			if( monthOfDate == monthToCalculate && dayOfDate == dayToCalculate){
+				double temp = std::stod(data.substr(20,4));
+				hist->Fill(temp);
+			}
+		}
+	}
+	TCanvas* can = new TCanvas();
+	hist->Draw();
+}	
+	
+
+	
+
+
 // void tempTrender::tempOnDay(int dateToCalculate) const {} //Make a histogram of the temperature on this date
 // void tempTrender::tempPerDay() const {} //Make a histogram of the average temperature of each day of the year
 // void tempTrender::hotCold() const {} //Make a histogram of the hottest and coldest day of the year
