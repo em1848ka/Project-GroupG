@@ -10,4 +10,5 @@ void project() {
         t.tempPerDay(2000);
 	//t.hotCold();
 	//t.tempPerYear(2050);
+	t.tempPerMonth(1);
 }
