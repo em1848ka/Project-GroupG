@@ -43,6 +43,7 @@ void tempTrender::tempPerDay(int year) const {
                    } else if (currMonth != std::stoi(data.substr(5,2)) || currDay != std::stoi(data.substr(8,2))) {
                        hist->GetStdDev();
                        hist->Fill(sum/n);
+                       hist->SetBinError(n, hist->GetStdDev());
                        currMonth = std::stoi(data.substr(5,2));
   		       currDay = std::stoi(data.substr(8,2));
                        n = 1;
@@ -54,10 +55,6 @@ void tempTrender::tempPerDay(int year) const {
               }
         }
         TCanvas* can = new TCanvas();
-        //for(int bin = 1; bin <= hist->GetNbinsX(); ++bin) {
-       //     hist->SetBinContent(bin, 5);
-        //    hist->SetBinError(bin, sqrt(5.));
-        //}
         hist->Draw();
 }
 	
