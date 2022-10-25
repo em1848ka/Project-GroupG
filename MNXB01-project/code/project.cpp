@@ -7,7 +7,8 @@ void project() {
 	
 	t.tempOnDay(8, 23); //Call some functions that you've implemented
 	//t.tempOnDay(235);
-        //t.tempPerDay();
+        t.tempPerDay(2000);
 	//t.hotCold();
 	//t.tempPerYear(2050);
+	t.tempPerMonth(1);
 }
