@@ -6,10 +6,13 @@
 #include <vector>
 #include <TH1F.h> 
 #include <TCanvas.h>
+#include <TStyle.h>
+#include <TLegend.h>
+#include <TGraph.h>
 class tempTrender {
 	public:
 	explicit tempTrender(const std::string& filePath) ; //Construct using the specified file
-	
+
 	~tempTrender() {} //Destructor
 	
 	void tempOnDay(int monthToCalculate, int dayToCalculate) const; //Make a histogram of the temperature on this day

@@ -9,7 +9,8 @@ void rootlogon() {
   gStyle->SetPadRightMargin(0.05);
   gStyle->SetPadBottomMargin(0.16);
   gStyle->SetPadLeftMargin(0.16);
-
+  gStyle->SetEndErrorSize(3);
+  gStyle->SetErrorX(1.);
   // Tell the compiler where to look for headers. Use the same kinds of flags
   //  that you've seen in the course. Note that paths cannot be relative or use
   //  ~
