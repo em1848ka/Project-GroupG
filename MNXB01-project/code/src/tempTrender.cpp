@@ -33,7 +33,7 @@ void tempTrender::tempOnDay(int monthToCalculate, int dayToCalculate) const {
 	legend->SetBorderSize(0);
 	hist->Draw();
 	legend->Draw();
-	c1->SaveAs("tempOnDay.jpg");
+        c1->SaveAs("histograms/tempOnDay.jpg");
 }
 
 void tempTrender::tempPerDay(int year) const {
@@ -73,7 +73,7 @@ void tempTrender::tempPerDay(int year) const {
 		legend->SetBorderSize(0);      
 		hist->Draw();
 		legend->Draw();
-		c2->SaveAs("tempPerDay.jpg");
+                c2->SaveAs("histograms/tempPerDay.jpg");
 }
 
 // our histogram calculates the average temperature of a month for every year
@@ -103,7 +103,7 @@ void tempTrender::tempPerMonth(int month) const {
 		legend->SetBorderSize(0);
         hist->Draw();
 		legend->Draw();
-		c3->SaveAs("tempPerMonth.jpg");
+                c3->SaveAs("histograms/tempPerMonth.jpg");
 }
 	
 
